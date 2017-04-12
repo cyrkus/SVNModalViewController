@@ -11,7 +11,7 @@ import SVNTheme
 import SVNShapesManager
 
 
-public class SVNModalViewController: UIViewController {
+open class SVNModalViewController: UIViewController {
     
     private lazy var dismissMeta: SVNShapeMetaData = {
         let shape = SVNShapeMetaData(shapes: nil,
@@ -31,12 +31,12 @@ public class SVNModalViewController: UIViewController {
         return button
     }()
     
-    public lazy var shapesManager: SVNShapesManager = {
+    open lazy var shapesManager: SVNShapesManager = {
         let manager = SVNShapesManager(container: self.view.bounds)
         return manager
     }()
     
-    public var theme = SVNTheme_DefaultDark()
+    open var theme = SVNTheme_DefaultDark()
     
     /**
      Call this in the viewdidload of whatever subclass is conforming after the other layers have been set
