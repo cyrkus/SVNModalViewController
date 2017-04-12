@@ -36,7 +36,7 @@ open class SVNModalViewController: UIViewController {
         return manager
     }()
     
-    open var theme = SVNTheme_DefaultDark()
+    open var theme: SVNTheme = SVNTheme_DefaultDark()
     
     /**
      Call this in the viewdidload of whatever subclass is conforming after the other layers have been set
