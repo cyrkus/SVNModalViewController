@@ -10,17 +10,10 @@ import UIKit
 import SVNTheme
 import SVNShapesManager
 
-public protocol SVNModalViewControllerDelegate: class {
-    func shouldDismiss(_ vc: UIViewController)
-}
-/*
- A modal viewController to be subclassed. 
- Call *addModalSubviews* in viewDidLoad of the subclassing ViewController
- To dimiss conform to *SVNModalViewControllerDelegate*
-**/
+/**
+ A modal viewController to be subclassed. Contains a Top Left dismissButton and uses *SVNShapesManager* & *SVNTheme*
+ */
 open class SVNModalViewController: UIViewController {
-    
-    public weak var delegate: SVNModalViewControllerDelegate!
     
     private lazy var dismissMeta: SVNShapeMetaData = {
         let shape = SVNShapeMetaData(shapes: nil,
@@ -47,16 +40,18 @@ open class SVNModalViewController: UIViewController {
     
     open var theme: SVNTheme = SVNTheme_DefaultDark()
     
-    /**
-     Call this in the viewdidload of whatever subclass is conforming after the other layers have been set
-    */
-    public func addModalSubviews(){
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        self.addModalSubviews()
+    }
+    
+    private func addModalSubviews(){
         self.dismissButton.frame = self.shapesManager.fetchRect(for: .topLeft, with: CGPoint(x: 0, y:0), and: CGSize(width: 85, height: 85))
         self.dismissMeta.shapes = self.shapesManager.createTwoLines(with: dismissMeta, shapeToCreate: .exit)
         self.dismissMeta.shapes?.forEach({ self.view.layer.addSublayer($0) })
     }
     
     open func shouldDismiss(){
-        self.delegate.shouldDismiss(self)
+        self.dismiss(animated: true, completion: nil)
     }
 }
