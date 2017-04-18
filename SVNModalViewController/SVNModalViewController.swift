@@ -10,8 +10,14 @@ import UIKit
 import SVNTheme
 import SVNShapesManager
 
+protocol SVNModalViewControllerDelegate: class {
+    func shouldDismiss(_ vc: UIViewController)
+}
+
 
 open class SVNModalViewController: UIViewController {
+    
+    weak var delegate: SVNModalViewControllerDelegate!
     
     private lazy var dismissMeta: SVNShapeMetaData = {
         let shape = SVNShapeMetaData(shapes: nil,
@@ -47,7 +53,7 @@ open class SVNModalViewController: UIViewController {
         self.dismissMeta.shapes?.forEach({ self.view.layer.addSublayer($0) })
     }
     
-    public func shouldDismiss(){
-        self.dismiss(animated: true, completion: nil)
+    open func shouldDismiss(){
+        self.delegate.shouldDismiss(self)
     }
 }
