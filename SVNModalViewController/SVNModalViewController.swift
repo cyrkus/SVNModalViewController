@@ -10,10 +10,9 @@ import UIKit
 import SVNTheme
 import SVNShapesManager
 
-protocol SVNModalViewControllerDelegate: class {
+public protocol SVNModalViewControllerDelegate: class {
     func shouldDismiss(_ vc: UIViewController)
 }
-
 
 open class SVNModalViewController: UIViewController {
     
