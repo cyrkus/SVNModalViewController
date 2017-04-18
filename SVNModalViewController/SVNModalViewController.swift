@@ -20,7 +20,7 @@ public protocol SVNModalViewControllerDelegate: class {
 **/
 open class SVNModalViewController: UIViewController {
     
-    weak var delegate: SVNModalViewControllerDelegate!
+    public weak var delegate: SVNModalViewControllerDelegate!
     
     private lazy var dismissMeta: SVNShapeMetaData = {
         let shape = SVNShapeMetaData(shapes: nil,
