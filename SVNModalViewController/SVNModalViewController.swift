@@ -13,7 +13,11 @@ import SVNShapesManager
 public protocol SVNModalViewControllerDelegate: class {
     func shouldDismiss(_ vc: UIViewController)
 }
-
+/*
+ A modal viewController to be subclassed. 
+ Call *addModalSubviews* in viewDidLoad of the subclassing ViewController
+ To dimiss conform to *SVNModalViewControllerDelegate*
+**/
 open class SVNModalViewController: UIViewController {
     
     weak var delegate: SVNModalViewControllerDelegate!
