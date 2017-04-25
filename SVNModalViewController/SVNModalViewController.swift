@@ -12,6 +12,7 @@ import SVNShapesManager
 
 /**
  A modal viewController to be subclassed. Contains a Top Left dismissButton and uses *SVNShapesManager* & *SVNTheme*
+    To add the button on the top left call addModalSubviews in viewDidLoad
  */
 open class SVNModalViewController: UIViewController {
     
@@ -39,11 +40,6 @@ open class SVNModalViewController: UIViewController {
     }()
     
     open var theme: SVNTheme = SVNTheme_DefaultDark()
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        self.addModalSubviews()
-    }
     
     private func addModalSubviews(){
         self.dismissButton.frame = self.shapesManager.fetchRect(for: .topLeft, with: CGPoint(x: 0, y:0), and: CGSize(width: 85, height: 85))
