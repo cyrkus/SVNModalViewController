@@ -13,6 +13,7 @@ import SVNShapesManager
 /**
  A modal viewController to be subclassed. Contains a Top Left dismissButton and uses *SVNShapesManager* & *SVNTheme*
     To add the button on the top left call addModalSubviews in viewDidLoad
+    Be sure that this viewController is presented modally otherwise override *shouldDismiss*
  */
 open class SVNModalViewController: UIViewController {
     
