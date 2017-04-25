@@ -41,7 +41,7 @@ open class SVNModalViewController: UIViewController {
     
     open var theme: SVNTheme = SVNTheme_DefaultDark()
     
-    private func addModalSubviews(){
+    public func addModalSubviews(){
         self.dismissButton.frame = self.shapesManager.fetchRect(for: .topLeft, with: CGPoint(x: 0, y:0), and: CGSize(width: 85, height: 85))
         self.dismissMeta.shapes = self.shapesManager.createTwoLines(with: dismissMeta, shapeToCreate: .exit)
         self.dismissMeta.shapes?.forEach({ self.view.layer.addSublayer($0) })
