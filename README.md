@@ -1,12 +1,12 @@
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 # SVNModalViewController
 
-A generic modal view controller to be used within the SVNAppBuilder.
+A modal ViewController with an 'X' dismiss icon in the top left corner
 Submodules:
-SVNTheme
-SVNShapesManager
+[SVNTheme]((https://github.com/sevenapps/SVNTheme)
+[SVNShapesManager](https://github.com/sevenapps/SVNShapesManager)
 
 ## To install this framework
-
 Add Carthage files to your .gitignore
 
     #Carthage
